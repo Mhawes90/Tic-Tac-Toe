@@ -1,1 +1,1 @@
-Add additional requirements or feedback here!
+1. Start with a static page layout that at least displays your game but doesn't do anything.
