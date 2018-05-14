@@ -12,7 +12,7 @@ function Node(x, y){
 /*
 * Not sure if I'm using prototypes right yet!
 */
-Node.proptotype.getLocation = function(){
+Node.prototype.getLocation = function(){
     return this.location;
 }
 
