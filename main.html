@@ -14,27 +14,107 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     
     
-    <table style="width:100%">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+    <div id="gameBoard">
+        <table style="width:50%" id="gameTable">
+            <tr id="1">
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr id="2">
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr id="3">
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+        </table>
+    </div>
 
-    <div id="game"></div>
+    <p id="turn"></p>
+
+    <div id="reset"></div>
 
     <script type="text/javascript" src="js/Board.js"></script>
+
+    <script>
+        // variables
+        var turn = 1; // 1 by default because arrays start at 0 - not this game
+        GRID_SIZE = 3; // size of game grid
+
+        // initialize turns before even starting the game
+        updateTurn();
+
+        // set click function
+         $("td").click(function(event){
+             if(getPlayer() == "O"){      // if turn is even then it's O's turn
+                if(isEmpty($(this).html())){
+                    $(this).html("O");
+                } else{
+                    return;
+                }
+            } else if(getPlayer() == "X"){
+                if(isEmpty($(this).html())){
+                    $(this).html("X");
+                } else{
+                    return;
+                }
+            }
+
+             turn++;
+             updateTurn();
+         });
+
+
+         function isEven(n){
+             return n % 2 == 0;
+         } // end isEven
+
+
+         function isEmpty(n){
+             return n == "";
+         }
+
+
+        function getPlayer(){
+            if(isEven(turn)){
+                return "O";
+            } else{
+                return "X";
+            }
+        }
+
+
+        function updateTurn(){
+            var turnMsg = "Turn " + turn + ". " + getPlayer() + "'s turn.";
+            
+            $("#turn").html(turnMsg);
+        }
+
+
+         // create and add a reset button
+        var button = document.createElement("BUTTON");
+        button.appendChild(document.createTextNode("Reset Game"));
+        document.getElementById("reset").appendChild(button);
+
+
+         // failed attempt at reset button
+        document.getElementById("reset").onclick(function(event){
+            turn = 1;
+            updateTurn();
+            
+            
+            for(var i=1; i <= GRID_SIZE; i++){
+                for(var j=1; j <= GRID_SIZE; j++){
+                    $("#gameTable").find("tr#"+i).find("td:eq(" + j + ")").html("");
+                    console.log(i + "" + j);
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
