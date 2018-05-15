@@ -11,8 +11,9 @@ function Board(){
 * part of this method was created using table commands/ideas
 * from https://github.com/vasanthk/tic-tac-toe-js
 */
-function creatBoard(){
-    var board = document.createElement('table');
+
+function createBoard() { //function name was mis-spelled.
+    var board = document.createElement('table');  // You are importing jQuery but not using it here. I would recommend using it everywhere or nowhere.
     board.setAttribute('border', 1);
     board.setAttribute('cellspacing', 0);
     
@@ -21,7 +22,7 @@ function creatBoard(){
         board.appendChild(row);
         for(var j = 0; j < T_SIZE; j++){
             var col = document.createElement('td');
-            col.setAttribute('height', 120);
+            col.setAttribute('height', 120);  //These should all just be CSS values
             col.setAttribute('width', 120);
             col.setAttribute('align', 'center');
             col.setAttribute('valign', 'center');
