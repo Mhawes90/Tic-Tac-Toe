@@ -1,1 +1,1 @@
--1. Start with a static page layout that at least displays your game but doesn't do anything.
+1. Start with a static page layout that at least displays your game but doesn't do anything.
