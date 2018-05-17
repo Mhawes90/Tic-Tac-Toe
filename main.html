@@ -41,6 +41,8 @@
     <script type="text/javascript" src="js/Board.js"></script>
 
     <script>
+        
+
         // variables
         var turn = 1; // 1 by default because arrays start at 0 - not this game
         GRID_SIZE = 3; // size of game grid
@@ -90,7 +92,7 @@
 
         function updateTurn(){
             var turnMsg = "Turn " + turn + ". " + getPlayer() + "'s turn.";
-            
+
             $("#turn").html(turnMsg);
         }
 
@@ -113,6 +115,7 @@
                     console.log(i + "" + j);
                 }
             }
+            
         });
     </script>
 
