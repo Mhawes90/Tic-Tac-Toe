@@ -9,15 +9,13 @@
     <link rel="stylesheet" type="text/css" href="css/game.css">
 </head>
 <body>
-    
-    
 
-    <!--
- 		Some general rules that are being broken here:
- 		1. You have inline styles here when you don't need them. You should move them all to an external stylesheet.
- 		2. You have multiple instances of ids on the page. Only 1 DOM node per page should ever use a specific id.
- 		3. Adding from rule 2, you should use classes when possible.
- 	-->
+	<!--
+		Some general rules that are being broken here:
+		1. You have inline styles here when you don't need them. You should move them all to an external stylesheet.
+		2. You have multiple instances of ids on the page. Only 1 DOM node per page should ever use a specific id.
+		3. Adding from rule 2, you should use classes when possible.
+	-->
     <div id="gameBoard">
         <table style="width:50%" id="gameTable">
             <tr id="1">
@@ -43,13 +41,15 @@
     <div id="reset"></div>
 
 
+
     <!-- Moved jQuery to after your content since this blocks the DOM rendering in your browser -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <!-- This file is actually not being references since it is not in the js folder -->
-    <!-- Fixed! -->
+
     <script type="text/javascript" src="js/Board.js"></script>
 
+    <!-- This script should move to an external file -->
     <script>
         
 
@@ -108,20 +108,21 @@
 
 
          // create and add a reset button
-         // If you are using a button for this, you shouldn't need to make it with Javascript.
+
+        // If you are using a button for this, you shouldn't need to make it with Javascript.
         var button = document.createElement("BUTTON");
         button.appendChild(document.createTextNode("Reset Game"));
         document.getElementById("reset").appendChild(button);
 
 
          // failed attempt at reset button
-         /*
-         	I see what you are trying to do here, but I would recommend setting your listener directly on the button if you are
-         	structuring your code like this.
- 
-         	As for the below, if you don't want to do that and you want to fix the script below then you need to look at the onclick
-         	function. That function does not exist on the data type you are working with. You would need to use addEventListener() instead.
-         */
+        /*
+        	I see what you are trying to do here, but I would recommend setting your listener directly on the button if you are
+        	structuring your code like this.
+
+        	As for the below, if you don't want to do that and you want to fix the script below then you need to look at the onclick
+        	function. That function does not exist on the data type you are working with. You would need to use addEventListener() instead.
+        */
         document.getElementById("reset").onclick(function(event){
             turn = 1;
             updateTurn();
