@@ -11,8 +11,8 @@ function Board(){
 * part of this method was created using table commands/ideas
 * from https://github.com/vasanthk/tic-tac-toe-js
 */
-function createBoard(){
-    var board = document.createElement("table");
+function createBoard(){ //function name was mis-spelled.
+    var board = document.createElement("table"); // You are importing jQuery but not using it here. I would recommend using it everywhere or nowhere.
     var tblBody = document.createElement("tbody");
     board.setAttribute('border', 1);
     board.setAttribute('cellspacing', 0);
