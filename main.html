@@ -38,7 +38,7 @@
 
     <p id="turn"></p>
 
-    <div id="reset"></div>
+    <div><button type="button" id="reset">Reset Game</button><</div>
 
 
 
@@ -47,93 +47,13 @@
 
     <!-- This file is actually not being references since it is not in the js folder -->
     <script type="text/javascript" src="js/Board.js"></script>
+	
+    <script type="text/javascript" src="js/Game.js"></script>
 
     <!-- This script should move to an external file -->
     <script>
-        
-
-        // variables
-        var turn = 1; // 1 by default because arrays start at 0 - not this game
-        GRID_SIZE = 3; // size of game grid
-
-        // initialize turns before even starting the game
-        updateTurn();
-
-        // set click function
-         $("td").click(function(event){
-             if(getPlayer() == "O"){      // if turn is even then it's O's turn
-                if(isEmpty($(this).html())){
-                    $(this).html("O");
-                } else{
-                    return;
-                }
-            } else if(getPlayer() == "X"){
-                if(isEmpty($(this).html())){
-                    $(this).html("X");
-                } else{
-                    return;
-                }
-            }
-
-             turn++;
-             updateTurn();
-         });
-
-
-         function isEven(n){
-             return n % 2 == 0;
-         } // end isEven
-
-
-         function isEmpty(n){
-             return n == "";
-         }
-
-
-        function getPlayer(){
-            if(isEven(turn)){
-                return "O";
-            } else{
-                return "X";
-            }
-        }
-
-
-        function updateTurn(){
-            var turnMsg = "Turn " + turn + ". " + getPlayer() + "'s turn.";
-
-            $("#turn").html(turnMsg);
-        }
-
-
-         // create and add a reset button
-        // If you are using a button for this, you shouldn't need to make it with Javascript.
-        var button = document.createElement("BUTTON");
-        button.appendChild(document.createTextNode("Reset Game"));
-        document.getElementById("reset").appendChild(button);
-
-
-         // failed attempt at reset button
-        /*
-        	I see what you are trying to do here, but I would recommend setting your listener directly on the button if you are
-        	structuring your code like this.
-
-        	As for the below, if you don't want to do that and you want to fix the script below then you need to look at the onclick
-        	function. That function does not exist on the data type you are working with. You would need to use addEventListener() instead.
-        */
-        document.getElementById("reset").onclick(function(event){
-            turn = 1;
-            updateTurn();
-            
-            
-            for(var i=1; i <= GRID_SIZE; i++){
-                for(var j=1; j <= GRID_SIZE; j++){
-                    $("#gameTable").find("tr#"+i).find("td:eq(" + j + ")").html("");
-                    console.log(i + "" + j);
-                }
-            }
-            
-        });
+        new Board();
+	new Game();
     </script>
 
 </body>
