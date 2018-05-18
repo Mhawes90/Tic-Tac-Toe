@@ -1,4 +1,4 @@
-function game(){
+function Game(){
     
     // variables
     var turn = 1; // 1 by default because arrays start at 0 - not this game
@@ -64,6 +64,8 @@ function game(){
 
 
     // failed attempt at reset button
+    /*
+    * commenting out until I can fix
     document.getElementById("reset").click(function(event){
         turn = 1;
         updateTurn();
@@ -76,5 +78,6 @@ function game(){
             }
         }
     });
+    */
 
 }
