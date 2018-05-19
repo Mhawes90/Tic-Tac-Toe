@@ -8,16 +8,19 @@ function Game(){
     // initialize turns before even starting the game
     updateTurn();
 
+    //init reset
+    $('#reset').click(reset);
+
     // set click function
     $("td").click(function(event){
-        if(getPlayer == "X"){      // if turn is even then it's O's turn
+        if(getPlayer() == "X"){      // if turn is even then it's O's turn
             if($(this).html() == ""){
                 $(this).html("O");
             } else{
                 $(this).html("ffff");
                 
             }
-        } else if(getPlayer == "O"){
+        } else if(getPlayer() == "O"){
             if($(this).html() == ""){
                 $(this).html("X");
             } else{
@@ -57,27 +60,14 @@ function Game(){
     }
 
 
-    // create and add a reset button
-    var button = document.createElement("BUTTON");
-    button.appendChild(document.createTextNode("Reset Game"));
-    document.getElementById("reset").appendChild(button);
+    function clearBoard() {
+        $('td').html('');
+    }
 
-
-    // failed attempt at reset button
-    /*
-    * commenting out until I can fix
-    document.getElementById("reset").click(function(event){
+    function reset () {
         turn = 1;
+        clearBoard();
         updateTurn();
-        
-        
-        for(var i=1; i <= GRID_SIZE; i++){
-            for(var j=1; j <= GRID_SIZE; j++){
-                $("#gameTable").find("tr#"+i).find("td:eq(" + j + ")").html("");
-                console.log(i + "" + j);
-            }
-        }
-    });
-    */
+    }
 
 }
