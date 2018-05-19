@@ -4,7 +4,7 @@ var T_SIZE = 3,     // sets table size
     boardArr = [];
 
 function Board(){
-    
+    createBoard();
 }
 
 /*
@@ -12,25 +12,26 @@ function Board(){
 * from https://github.com/vasanthk/tic-tac-toe-js
 */
 function createBoard(){ //function name was mis-spelled.
-    var board = document.createElement("table"); // You are importing jQuery but not using it here. I would recommend using it everywhere or nowhere.
-    var tblBody = document.createElement("tbody");
-    board.setAttribute('border', 1);
-    board.setAttribute('cellspacing', 0);
-    
-    for(var i = 0; i < T_SIZE; i++){
-        var row = document.createElement('tr');
-        board.appendChild(row);
-        for(var j = 0; j < T_SIZE; j++){
-            var cell = document.createElement('td');
-            
-            //boardArr.push(new Node(i, j));
-            row.appendChild(cell);
-        }       // end for j
-        tblBody.appendChild(row);
-    }       // end for i
+    /*
+    * found a way to create a table using jQuery. Found here: https://gist.github.com/jineeshjohn/2044414
+    * 
+    * I'm still a little confused with jQuery but I can see now that I can directly
+    * create html tags in a way that make more sense then i was previously doing.
+    */
 
-    document.getElementsByTagName("body")[0].appendChild(board).appendChild(tblBody);
-    board.setAttribute("border", "2");
+
+   table = $('<table></table>');
+   
+   var tr = [];
+   for (var i = 0; i < T_SIZE; i++) {
+       var row = $('<tr></tr>').appendTo(table);
+       for (var j = 0; j < T_SIZE; j++) {
+           $('<td></td>').text("").appendTo(row); 
+       }
+                 
+   }
+
+   table.appendTo("#gameBoard");
 }       // end createBoard
 
 

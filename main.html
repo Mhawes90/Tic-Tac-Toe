@@ -16,29 +16,11 @@
 		2. You have multiple instances of ids on the page. Only 1 DOM node per page should ever use a specific id.
 		3. Adding from rule 2, you should use classes when possible.
 	-->
-    <div id="gameBoard">
-        <table style="width:50%" id="gameTable">
-            <tr id="1">
-                <td id="1"></td>
-                <td id="2"></td>
-                <td id="3"></td>
-            </tr>
-            <tr id="2">
-                <td id="1"></td>
-                <td id="2"></td>
-                <td id="3"></td>
-            </tr>
-            <tr id="3">
-                <td id="1"></td>
-                <td id="2"></td>
-                <td id="3"></td>
-            </tr>
-        </table>
-    </div>
+    <div id="gameBoard"></div>
 
     <p id="turn"></p>
 
-    <div><button type="button" id="reset">Reset Game</button><</div>
+    <div><button type="button" id="reset">Reset Game</button></div>
 
 
 
@@ -53,7 +35,7 @@
     <!-- This script should move to an external file -->
     <script>
         new Board();
-	new Game();
+	    new Game();
     </script>
 
 </body>
