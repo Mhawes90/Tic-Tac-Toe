@@ -60,6 +60,10 @@ function Game(){
     }
 
 
+    /*
+    * clear board by referring to all td tags. Wasn't sure if it was a possible idea
+    * All thanks to pineappleparticle
+    */
     function clearBoard() {
         $('td').html('');
     }
