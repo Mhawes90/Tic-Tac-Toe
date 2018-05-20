@@ -15,17 +15,15 @@ function Game(){
     $("td").click(function(event){
         if(getPlayer() == "X"){      // if turn is even then it's O's turn
             if($(this).html() == ""){
-                $(this).html("O");
-            } else{
-                $(this).html("ffff");
-                
+                $(this).html("X");
+            } else {
+                return;
             }
         } else if(getPlayer() == "O"){
             if($(this).html() == ""){
-                $(this).html("X");
+                $(this).html("O");
             } else{
-                $(this).html("ffff");
-            
+                return;
             }
         }
 
