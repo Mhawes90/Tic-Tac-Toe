@@ -12,24 +12,25 @@ function Game(){
     $('#reset').click(reset);
 
     // set click function
-    $("td").click(function(event){
-        if(getPlayer() == "X"){      // if turn is even then it's O's turn
+    $("td").click(takeCell);
+
+    
+    function takeCell(){
+        if(getPlayer() == "X"){      
             if($(this).html() == ""){
                 $(this).html("X");
-            } else {
-                return;
-            }
+            } 
+            return;
         } else if(getPlayer() == "O"){
             if($(this).html() == ""){
                 $(this).html("O");
-            } else{
-                return;
-            }
+            } 
+            return;
         }
 
         turn++;
         updateTurn();
-    });
+    }
 
 
     function getPlayer(){
